@@ -24,12 +24,12 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     long countByStatus(PaymentStatus status);
 
-    @Query("select coalesce(sum(p.amount), 0) from Payment p where p.status = payment.processing.project.Model.Enums.PaymentStatus.COMPLETED " +
+    @Query("select coalesce(sum(p.amount), 0) from Payment p where p.status = payment.processing.system.Model.Enums.PaymentStatus.COMPLETED " +
             "and p.updatedAt between :start and :end")
     BigDecimal sumCompletedAmountBetween(@Param("start") LocalDateTime start, @Param("end") LocalDateTime end);
 
     @Query("select p.receiver.department as departmentName, coalesce(sum(p.amount), 0) as totalAmount " +
-            "from Payment p where p.status = payment.processing.project.Model.Enums.PaymentStatus.COMPLETED group by p.receiver.department")
+            "from Payment p where p.status = payment.processing.system.Model.Enums.PaymentStatus.COMPLETED group by p.receiver.department")
     List<DepartmentExpenditure> sumCompletedAmountByDepartment();
 
     @Query("select p.currency.currencyCode as currencyCode, count(p) as paymentCount from Payment p group by p.currency.currencyCode")
@@ -37,7 +37,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     @Query("select function('year', p.updatedAt) as year, function('month', p.updatedAt) as month, " +
             "coalesce(sum(p.amount), 0) as totalAmount " +
-            "from Payment p where p.status = payment.processing.project.Model.Enums.PaymentStatus.COMPLETED " +
+            "from Payment p where p.status = payment.processing.system.Model.Enums.PaymentStatus.COMPLETED " +
             "group by function('year', p.updatedAt), function('month', p.updatedAt) " +
             "order by function('year', p.updatedAt), function('month', p.updatedAt)")
     List<MonthlyTrend> monthlySalaryTrend();

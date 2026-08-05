@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import payment.processing.project.Services.ScheduledPaymentService;
+import payment.processing.system.Services.ScheduledPaymentService;
 
 /**
  * Polls for due scheduled salary payments and executes them automatically.
@@ -19,7 +19,7 @@ public class ScheduledPaymentRunner {
 
     @Scheduled(cron = "${scheduler.scheduled-payments.cron:0 * * * * *}")
     public void runDuePayments() {
-        log.debug("Checking for due scheduled salary payments...");
+        log.info("Checking for due scheduled salary payments...");
         scheduledPaymentService.executeDuePayments();
     }
 }

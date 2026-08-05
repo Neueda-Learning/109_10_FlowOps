@@ -1,4 +1,4 @@
-package payment.processing.system.Model.Enums;
+package payment.processing.system.Model;
 
 import jakarta.persistence.*;
 import lombok.*;

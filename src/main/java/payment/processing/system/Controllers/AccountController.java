@@ -8,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import payment.processing.project.DTO.Request.AccountRequest;
-import payment.processing.project.DTO.Response.AccountResponse;
-import payment.processing.project.Services.AccountService;
+import payment.processing.system.DTO.Request.AccountRequest;
+import payment.processing.system.DTO.Response.AccountResponse;
+import payment.processing.system.Services.AccountService;
 
 import java.util.List;
 

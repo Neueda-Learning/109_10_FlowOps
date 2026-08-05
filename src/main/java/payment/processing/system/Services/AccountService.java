@@ -1,4 +1,4 @@
-package payment.processing.system.Services.Impl;
+package payment.processing.system.Services;
 
 import payment.processing.system.DTO.Request.AccountRequest;
 import payment.processing.system.DTO.Response.AccountResponse;

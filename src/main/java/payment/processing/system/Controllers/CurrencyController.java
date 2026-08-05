@@ -8,10 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import payment.processing.project.DTO.Request.CurrencyRequest;
-import payment.processing.project.DTO.Response.CurrencyResponse;
-import payment.processing.project.Model.Enums.CurrencyCode;
-import payment.processing.project.Services.CurrencyService;
+import payment.processing.system.DTO.Request.CurrencyRequest;
+import payment.processing.system.DTO.Response.CurrencyResponse;
+import payment.processing.system.Model.Enums.CurrencyCode;
+import payment.processing.system.Services.CurrencyService;
 
 import java.util.List;
 

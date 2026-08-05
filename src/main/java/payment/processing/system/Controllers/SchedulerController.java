@@ -8,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import payment.processing.project.DTO.Request.ScheduleRequest;
-import payment.processing.project.DTO.Response.ScheduledPaymentResponse;
-import payment.processing.project.Services.ScheduledPaymentService;
+import payment.processing.system.DTO.Request.ScheduleRequest;
+import payment.processing.system.DTO.Response.ScheduledPaymentResponse;
+import payment.processing.system.Services.ScheduledPaymentService;
 
 import java.util.List;
 

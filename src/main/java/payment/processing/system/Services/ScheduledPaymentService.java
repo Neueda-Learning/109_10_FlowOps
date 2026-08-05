@@ -1,4 +1,4 @@
-package payment.processing.system.Services.Impl;
+package payment.processing.system.Services;
 
 import payment.processing.system.DTO.Request.ScheduleRequest;
 import payment.processing.system.DTO.Response.ScheduledPaymentResponse;

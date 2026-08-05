@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import payment.processing.project.DTO.Response.DashboardSummaryResponse;
-import payment.processing.project.Services.DashboardService;
+import payment.processing.system.DTO.Response.DashboardSummaryResponse;
+import payment.processing.system.Services.DashboardService;
 
 @RestController
 @RequestMapping("/api/dashboard")

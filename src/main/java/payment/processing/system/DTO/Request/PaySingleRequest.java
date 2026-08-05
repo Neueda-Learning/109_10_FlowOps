@@ -1,6 +1,5 @@
 package payment.processing.system.DTO.Request;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -15,10 +14,10 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PayDepartmentRequest {
+public class PaySingleRequest {
 
-    @NotBlank(message = "Department is required")
-    private String department;
+    @NotNull(message = "Receiver id is required")
+    private Long receiverId;
 
     @NotNull(message = "Amount is required")
     @Positive(message = "Amount must be positive")
@@ -28,5 +27,6 @@ public class PayDepartmentRequest {
     private CurrencyCode currencyCode;
 
     private String paymentType;
-}
 
+    private String reference;
+}

@@ -7,11 +7,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import payment.processing.project.DTO.Request.PayAllRequest;
-import payment.processing.project.DTO.Request.PayDepartmentRequest;
-import payment.processing.project.DTO.Request.PaySingleRequest;
-import payment.processing.project.DTO.Response.PaymentResponse;
-import payment.processing.project.Services.PaymentService;
+import payment.processing.system.DTO.Request.PayAllRequest;
+import payment.processing.system.DTO.Request.PayDepartmentRequest;
+import payment.processing.system.DTO.Request.PaySingleRequest;
+import payment.processing.system.DTO.Response.PaymentResponse;
+import payment.processing.system.Services.PaymentService;
 
 import java.util.List;
 
