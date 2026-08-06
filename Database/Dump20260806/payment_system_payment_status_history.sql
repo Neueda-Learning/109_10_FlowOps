@@ -1,0 +1,57 @@
+CREATE DATABASE  IF NOT EXISTS `payment_system` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `payment_system`;
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+--
+-- Host: localhost    Database: payment_system
+-- ------------------------------------------------------
+-- Server version	8.0.41
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `payment_status_history`
+--
+
+DROP TABLE IF EXISTS `payment_status_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment_status_history` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `changed_at` datetime(6) NOT NULL,
+  `current_status` enum('COMPLETED','CREATED','FAILED','REFUNDED','SENT','VALIDATED') NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `payment_id` bigint NOT NULL,
+  `previous_status` enum('COMPLETED','CREATED','FAILED','REFUNDED','SENT','VALIDATED') DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment_status_history`
+--
+
+LOCK TABLES `payment_status_history` WRITE;
+/*!40000 ALTER TABLE `payment_status_history` DISABLE KEYS */;
+INSERT INTO `payment_status_history` VALUES (1,'2026-08-02 23:51:07.000000','REFUNDED','Refund Processed',5,'COMPLETED'),(2,'2026-08-06 04:07:04.965831','CREATED','Payment created',16,NULL),(3,'2026-08-06 04:07:04.972915','VALIDATED','Payment validated',16,'CREATED'),(4,'2026-08-06 04:07:04.978537','SENT','Payment sent',16,'VALIDATED'),(5,'2026-08-06 04:07:04.982989','COMPLETED','Payment completed',16,'SENT'),(6,'2026-08-06 04:10:55.052653','REFUNDED','Payment fully refunded',16,'COMPLETED'),(7,'2026-08-06 04:16:36.721462','CREATED','Payment created',17,NULL),(8,'2026-08-06 04:16:36.728916','VALIDATED','Payment validated',17,'CREATED'),(9,'2026-08-06 04:16:36.732878','SENT','Payment sent',17,'VALIDATED'),(10,'2026-08-06 04:16:36.738309','COMPLETED','Payment completed',17,'SENT'),(11,'2026-08-06 04:22:05.570447','CREATED','Payment created',18,NULL),(12,'2026-08-06 04:22:05.576292','VALIDATED','Payment validated',18,'CREATED'),(13,'2026-08-06 04:22:05.585014','SENT','Payment sent',18,'VALIDATED'),(14,'2026-08-06 04:22:05.592452','COMPLETED','Payment completed',18,'SENT'),(15,'2026-08-06 04:23:49.985220','CREATED','Payment created',19,NULL),(16,'2026-08-06 04:23:49.988858','VALIDATED','Payment validated',19,'CREATED'),(17,'2026-08-06 04:23:49.993501','SENT','Payment sent',19,'VALIDATED'),(18,'2026-08-06 04:23:49.999101','COMPLETED','Payment completed',19,'SENT'),(19,'2026-08-06 04:27:11.513936','CREATED','Payment created',20,NULL),(20,'2026-08-06 04:27:11.518927','VALIDATED','Payment validated',20,'CREATED'),(21,'2026-08-06 04:27:11.522509','SENT','Payment sent',20,'VALIDATED'),(22,'2026-08-06 04:27:11.526137','COMPLETED','Payment completed',20,'SENT'),(23,'2026-08-06 05:45:22.174003','CREATED','Payment created',21,NULL),(24,'2026-08-06 05:45:22.178420','VALIDATED','Payment validated',21,'CREATED'),(25,'2026-08-06 05:45:22.183868','SENT','Payment sent',21,'VALIDATED'),(26,'2026-08-06 05:45:22.187897','COMPLETED','Payment completed',21,'SENT'),(27,'2026-08-06 05:48:19.163789','CREATED','Payment created',22,NULL),(28,'2026-08-06 05:48:19.166888','VALIDATED','Payment validated',22,'CREATED'),(29,'2026-08-06 05:48:19.172936','SENT','Payment sent',22,'VALIDATED'),(30,'2026-08-06 05:48:19.176706','COMPLETED','Payment completed',22,'SENT'),(31,'2026-08-06 06:01:18.529035','CREATED','Payment created',23,NULL),(32,'2026-08-06 06:01:18.533590','VALIDATED','Payment validated',23,'CREATED'),(33,'2026-08-06 06:01:18.541346','SENT','Payment sent',23,'VALIDATED'),(34,'2026-08-06 06:01:18.547633','COMPLETED','Payment completed',23,'SENT'),(35,'2026-08-06 06:01:58.504947','CREATED','Payment created',24,NULL),(36,'2026-08-06 06:01:58.515278','VALIDATED','Payment validated',24,'CREATED'),(37,'2026-08-06 06:01:58.519931','SENT','Payment sent',24,'VALIDATED'),(38,'2026-08-06 06:01:58.524520','COMPLETED','Payment completed',24,'SENT'),(39,'2026-08-06 06:07:55.003132','CREATED','Payment created',25,NULL),(40,'2026-08-06 06:07:55.006834','VALIDATED','Payment validated',25,'CREATED'),(41,'2026-08-06 06:07:55.011460','SENT','Payment sent',25,'VALIDATED'),(42,'2026-08-06 06:07:55.025319','COMPLETED','Payment completed',25,'SENT'),(43,'2026-08-06 06:11:30.482394','CREATED','Payment created',26,NULL),(44,'2026-08-06 06:11:30.486979','VALIDATED','Payment validated',26,'CREATED'),(45,'2026-08-06 06:11:30.490078','SENT','Payment sent',26,'VALIDATED'),(46,'2026-08-06 06:11:30.494981','COMPLETED','Payment completed',26,'SENT');
+/*!40000 ALTER TABLE `payment_status_history` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-08-06  6:44:00

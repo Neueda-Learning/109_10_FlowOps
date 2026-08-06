@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Processing System - History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="history">
+    <nav class="navbar navbar-expand-lg fixed-top app-navbar">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.html">
+          <span class="brand-mark"></span>
+          <span class="fw-bold brand-title">FlowPay</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto gap-lg-1">
+            <li class="nav-item"><a class="nav-link" data-nav="dashboard" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" data-nav="create-payment" href="create-payment.html">Create Payment</a></li>
+            <li class="nav-item"><a class="nav-link" data-nav="history" href="history.html">History</a></li>
+            <li class="nav-item"><a class="nav-link" data-nav="schedule" href="schedule.html">Scheduled Payments</a></li>
+            <li class="nav-item"><a class="nav-link" data-nav="refund" href="refund.html">Refund</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-shell">
+      <div class="container">
+        <section class="hero mb-4 reveal">
+          <h1 class="mb-2">Transaction History</h1>
+          <p class="mb-0">View and filter payment records by type, status, and payment reference.</p>
+        </section>
+
+        <section class="glass-card p-3 p-md-4 reveal delay-1">
+          <div id="historyAlert"></div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-3">
+              <label class="form-label" for="historySearch">Search Payment Reference</label>
+              <input type="text" class="form-control" id="historySearch" placeholder="Search by payment reference" />
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="historyType">Payment Type</label>
+              <select id="historyType" class="form-select">
+                <option value="all" selected>all</option>
+                <option value="Individual Payment">Individual Payment</option>
+                <option value="Entity Payment">Entity Payment</option>
+                <option value="International Payment">International Payment</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="historyStatus">Status</label>
+              <select id="historyStatus" class="form-select">
+                <option value="all" selected>all</option>
+                <option value="completed">completed</option>
+                <option value="pending">pending</option>
+                <option value="failed">failed</option>
+                <option value="refunded">refunded</option>
+                <option value="scheduled">scheduled</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="historyCurrency">Currency</label>
+              <select id="historyCurrency" class="form-select">
+                <option value="all" selected>all</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="historyDate">Date</label>
+              <input type="date" class="form-control" id="historyDate" />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="historySort">Sort</label>
+              <select id="historySort" class="form-select">
+                <option value="newest" selected>Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="amount">Amount</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <button id="historyExportCsv" type="button" class="btn btn-sm btn-outline-secondary">Export CSV</button>
+            <div class="d-flex align-items-center gap-2">
+              <button id="historyPrev" type="button" class="btn btn-sm btn-outline-secondary">Previous</button>
+              <span id="historyPageInfo" class="small text-muted">Page 1 of 1</span>
+              <button id="historyNext" type="button" class="btn btn-sm btn-outline-secondary">Next</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Payment ID</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Currency</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="historyRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
