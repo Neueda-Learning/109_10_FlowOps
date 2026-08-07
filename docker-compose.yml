@@ -1,0 +1,116 @@
+services:
+
+
+  mysql:
+
+    image: mysql:8.0
+
+    container_name: payment_mysql
+
+    restart: always
+
+
+    environment:
+
+      MYSQL_ROOT_PASSWORD: n3u3da!
+
+      MYSQL_DATABASE: payment_system
+
+
+    ports:
+
+      - "3306:3306"
+
+
+    volumes:
+
+      - mysql_data:/var/lib/mysql
+
+      - ./Database/Dump20260806:/docker-entrypoint-initdb.d
+
+
+    networks:
+
+      - payment-network
+
+
+
+  backend:
+
+    build:
+
+      context: ./Backend
+
+
+    container_name: payment_backend
+
+
+    restart: always
+
+
+    ports:
+
+      - "8080:8080"
+
+
+    depends_on:
+
+      - mysql
+
+
+    environment:
+
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/payment_system
+
+      SPRING_DATASOURCE_USERNAME: root
+
+      SPRING_DATASOURCE_PASSWORD: n3u3da!
+
+
+    networks:
+
+      - payment-network
+
+
+
+
+  frontend:
+
+    build:
+
+      context: ./frontend
+
+
+    container_name: payment_frontend
+
+
+    restart: always
+
+
+    ports:
+
+      - "80:80"
+
+
+    depends_on:
+
+      - backend
+
+
+    networks:
+
+      - payment-network
+
+
+
+volumes:
+
+  mysql_data:
+
+
+
+networks:
+
+  payment-network:
+
+    driver: bridge
